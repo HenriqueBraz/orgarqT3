@@ -7,17 +7,16 @@ Created on Thu May 30 23:29:42 2019
 """
 
 
-def leitura_pergaminho(arquivo,arquivo_pronto):
+def hexa_binario(arquivo,arquivo_pronto):
         """
-        Método que lê o arquivo inicial
+        Método que lê o arquivo inicial com os dados em hexa
         param arquivo: arquivo inicial a ser lido
-        return: retorna uma lista com os dados do arquivo
+        cria um arquivo_pronto.txt com os dados do arquivo em binario
         """
         arq = open(arquivo, 'r')
         arq2 = open(arquivo_pronto,'w')
         arquivo = arq.readlines()
         a = []
-        c = []
         for i in range(len(arquivo)):
             a.append(arquivo[i].split(','))
             for j in range(len(a[i])):
@@ -27,7 +26,6 @@ def leitura_pergaminho(arquivo,arquivo_pronto):
                     arq2.write(b +' --> '+x +'\n')
         arq.close()
         arq2.close()                  
-        return(c)
       
               
 
@@ -36,8 +34,7 @@ def leitura_pergaminho(arquivo,arquivo_pronto):
 
 if __name__ == "__main__":
     
-    print(leitura_pergaminho('/home/henrique/orgarqt3/orgarqT3/arquivo','/home/henrique/orgarqt3/orgarqT3/arquivo_pronto'))
-    
+    hexa_binario('/home/henrique/orgarqt3/orgarqT3/arquivo','/home/henrique/orgarqt3/orgarqT3/arquivo_pronto')    
     
     
     
