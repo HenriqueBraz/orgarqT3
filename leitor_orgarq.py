@@ -36,7 +36,7 @@ def leitura_pergaminho(arquivo,arquivo_pronto):
 
 if __name__ == "__main__":
     
-    print(leitura_pergaminho('/home/henrique/orgarqt3/arquivo','/home/henrique/orgarqt3/arquivo_pronto'))
+    print(leitura_pergaminho('/home/henrique/orgarqt3/orgarqT3/arquivo','/home/henrique/orgarqt3/orgarqT3/arquivo_pronto'))
     
     
     
