@@ -27,7 +27,16 @@ def hexa_binario(arquivo,arquivo_pronto):
         arq.close()
         arq2.close()                  
       
-              
+def cria_numeros_cash_8b(numeros):
+    """
+    Método que converte um inteiro para Hexa de 8 bits
+    param numero: quantidade total de posições da cash, em decimal
+    """
+    for i in range(numeros):
+        b = hex(i)
+        x = bin(int(b, 16))[2:].zfill(8)
+        print(x)
+            
 
 
 
@@ -36,7 +45,7 @@ if __name__ == "__main__":
     
     hexa_binario('/home/henrique/orgarqt3/orgarqT3/arquivo','/home/henrique/orgarqt3/orgarqT3/arquivo_pronto')    
     
-    
+    cria_numeros_cash_8b(256)
     
     
     
