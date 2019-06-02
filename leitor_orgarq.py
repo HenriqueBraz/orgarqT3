@@ -11,7 +11,7 @@ def hexa_binario(arquivo,hexa_binario):
         """
         Método que lê o arquivo inicial com os dados em hexa
         param arquivo: arquivo inicial a ser lido
-        cria um arquivo_pronto.txt com os dados do arquivo em binario
+        :return: arquivo hexa_binario.txt com os dados do arquivo em binario
         """
         lista_binario = []
         arq = open(arquivo, 'r')
@@ -31,7 +31,7 @@ def hexa_binario(arquivo,hexa_binario):
         arq2.close()
         return(lista_binario)
         
-def cria_linha_cash(numeros):
+def cria_cash(numeros):
     """
     Método que cria uma lista de listas, com a pósição inicial de cada linha da cash
     param numero: quantidade total de posições da cash, em decimal
@@ -77,18 +77,27 @@ def organiza_palavra(palavra,ultimos_bits):
     
         
         
-def exercio1(lista_binario,arquivo_pronto):
+def exercio1(lista_binario,exercicio1):
+    """
+    Método que faz a análise da cash 
+    :param lista_binario: lista convertida de hexa para binario 
+    :param arquivo_pronto: caminho do arquivo.txt onde será salvo os dados da análise
+    utiliza do método organiza_palavra para inserir os ultimos bits nas posições do bloco
+    utiliza do método cria_cash para criar a cash vazia
+    """
     cash = []
-    cash = cria_linha_cash(16)
+    cash = cria_cash(16)
     indice = ''
-    arq = open(arquivo_pronto,'w')
+    hit = 0
+    miss = 0
+    arq = open(exercicio1,'w')
+    arq.write('\nlinha, bit_validade, tag, palavra0, palavra1, palavra2, palavra3, palavra4, palavra5, palavra6, palavra7, bit para byte, Hit/Miss\n')
     for i in range(len(lista_binario)):
         x = str(lista_binario[i])
         tag = x[0:8]
         linha  = x[8:12]
         palavra = x[0:15]
         b_byte = x[15]
-        
         for j in range(len(cash)):
             
             if linha in cash[j]:
@@ -108,19 +117,23 @@ def exercio1(lista_binario,arquivo_pronto):
             cash[indice][10] = organiza_palavra(palavra,3)[7]
             cash[indice][11] = b_byte
             cash[indice][12] = 'Miss'
+            miss += 1
        
         elif cash[indice][2] == tag:
             
-            cash[indice][12] = 'Hit'
             cash[indice][11] = b_byte
+            cash[indice][12] = 'Hit'
+            hit += 1
             
            
         print('cash[indice]:')    
         print(cash[indice])
-        arq.write('bit_validade, tag, palavra0, palavra1, palavra2, palavra3, palavra4, palavra5,palavra6, palavra7, bit para byte, Hit / Miss')
         arq.write('\n'+str(cash[indice])+'\n')
         
-    
+    arq.write('\nTotal de Cash Hit:\n')
+    arq.write(str(hit) +'\n')
+    arq.write('Total de Cash Miss:\n')
+    arq.write(str(miss))
     arq.close()            
             
     
@@ -131,9 +144,8 @@ if __name__ == "__main__":
     
     lista_binario = hexa_binario('/home/henrique/orgarqt3/orgarqT3/arquivo','/home/henrique/orgarqt3/orgarqT3/hexa_binario')    
     
-    exercio1(lista_binario,'/home/henrique/orgarqt3/orgarqT3/arquivo_pronto')
+    exercio1(lista_binario,'/home/henrique/orgarqt3/orgarqT3/exercicio1')
     
-    #print(organiza_palavra('000000000101000',3)[7])
     
     
     
