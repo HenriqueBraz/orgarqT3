@@ -86,7 +86,7 @@ def exercio1(lista_binario,exercicio1):
     utiliza do método cria_cash para criar a cash vazia
     """
     cash = []
-    cash = cria_cash(16)
+    cash = cria_cash(16) #cria a cash com 16 linhas
     indice = ''
     hit = 0
     miss = 0
@@ -130,6 +130,9 @@ def exercio1(lista_binario,exercicio1):
         print(cash[indice])
         arq.write('\n'+str(cash[indice])+'\n')
         
+    arq.write('\nCash, resultado final: \n')
+    arq.write('\nlinha, bit_validade, tag, palavra0, palavra1, palavra2, palavra3, palavra4, palavra5, palavra6, palavra7, bit para byte, Hit/Miss\n')     
+    arq.write('\n'+str(cash)+'\n')    
     arq.write('\nTotal de Cash Hit:\n')
     arq.write(str(hit) +'\n')
     arq.write('Total de Cash Miss:\n')
