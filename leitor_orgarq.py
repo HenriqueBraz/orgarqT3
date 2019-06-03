@@ -226,17 +226,25 @@ if __name__ == "__main__":
     
     lista_binario = hexa_binario('/home/henrique/orgarqt3/orgarqT3/arquivo_hexa','/home/henrique/orgarqt3/orgarqT3/hexa_binario')    
 
-    exercio1(lista_binario,'/home/henrique/orgarqt3/orgarqT3/exercicio1')
-    
-    exercio2(lista_binario,'/home/henrique/orgarqt3/orgarqT3/exercicio2')
-    
-    
     #Mapeamento direto, com 8 bits para tag, 4 bits para linha, 3 bits
     #para palavra e 1 bit para byte (cache com 16 linhas, 8 palavras por linha).
+    exercio1(lista_binario,'/home/henrique/orgarqt3/orgarqT3/exercicio1')
     
     
     #Mapeamento direto, com 8 bits para tag, 5 bits para linha, 2 bits
     #para palavra e 1 bit para byte (cache com 32 linhas, 4 palavras por linha).
+    exercio2(lista_binario,'/home/henrique/orgarqt3/orgarqT3/exercicio2')
+    
+    
+    #Mapeamento associativo, com 12 bits para tag, 3 bits para palavra
+    #e 1 bit para byte (cache com 16 linhas, 8 palavras por linha).
+    
+    #Mapeamento associativo, com 13 bits para tag, 2 bits para palavra 
+    #e 1 bit para byte (cache com 32 linhas, 4 palavras por linha).
+    
+    
+    
+    
     
     
     
